@@ -66,7 +66,11 @@ available_boxes = {
                   }
 
 # useful to iterate through the boxes to find the cheapest possible box that would fit our items
-sorted_available_boxes.sort_by { |k, v| v[:cost] }
+def sorted_available_boxes(boxes)
+  boxes.sort_by { |k, v| v[:cost] }
+end
+
+# sorted_available_boxes.sort_by { |k, v| v[:cost] }
 
 # # find the volume of a hash of dimensions
 def volume(hash)
