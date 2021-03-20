@@ -26,11 +26,11 @@ end
 
 # get the dimensions of every item, in every order from the formatted API data (see line 17), in format [x, y, z]
 # plug the extract_dimensions_array method in as the argument
-def format_dimensions(order)
-     order.items
-        end
-    end
-end
+# def format_dimensions(order)
+#     order.items
+
+#     end
+# end
 
 p format_dimensions(extract_dimensions_from_api)
 
@@ -43,7 +43,7 @@ def volume_of_orders(orders_array)
             sum += item[1].values[1..3].inject(:*)
         end
         sum
-    end 
+    end
 end
 
 available_boxes = {
@@ -65,10 +65,10 @@ available_boxes = {
                     :xl_two => {:dimensions => {longest_side: 39, second_longest_side: 35, third_longest_side: 70}, :cost => 8.50}
                   }
 
-# useful to iterate through the boxes to find the cheapest possible box that would fit our items                 
+# useful to iterate through the boxes to find the cheapest possible box that would fit our items
 sorted_available_boxes.sort_by { |k, v| v[:cost] }
 
-# # find the volume of a hash of dimensions                 
+# # find the volume of a hash of dimensions
 def volume(hash)
   hash.values.inject(:*)
 end
