@@ -33,7 +33,7 @@ class OrdersController < ApplicationController
         width = item["sellable"]["measurement_attributes"]["width"]
         height = item["sellable"]["measurement_attributes"]["height"]
         depth = item["sellable"]["measurement_attributes"]["depth"]
-        order_item = OrderItem.new(title: title, image_url: image_url, sku_code: sku, weight: weight, width: width , height: height , depth: depth)
+        order_item = OrderItem.new(title: title, image_url: image_url, sku: sku, weight: weight, width: width , height: height , depth: depth)
         order_items << order_item
       end
 
