@@ -99,4 +99,32 @@ module ApplicationHelper
       end
       chosen_box
   end
+
+  def format_order(order)
+    items = []
+    order.order_items.each do |item|
+      items << { dimensions: [item.height, item.width, item.depth].sort, weight: item.weight }
+    end
+  end
+
+  def format_box(box)
+    { dimensions: box[:dimensions], weight_limit: 50 }
+  end
+
+  def compare_min_volume_with_available_boxes(order)
+    for box in sorted_available_boxes do
+      cont = EasyBoxPacker.pack(
+                  container: format_box(box),
+                  items: format_order(order)
+                )
+      if cont[:errors] != []
+        p "Something went wrong"
+      end
+      if cont[:packings].length == 1 && cont[:errors] == []
+        chosen_box = box
+        break
+      end
+    end
+    chosen_box
+  end
 end
