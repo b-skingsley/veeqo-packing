@@ -11,7 +11,9 @@
 
   <body>
     <%= render 'shared/header' %>
-    <%= yield %>
+    <div id="main-body">
+      <%= yield %>
+    </div>
     <%= render 'shared/footer' %>
   </body>
 </html>
