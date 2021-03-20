@@ -7,8 +7,8 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @order = Order.find[params[:id]]
-    @package = calc_packaging(@order)
+    @order = Order.find(params[:id])
+    # @package = calc_packaging(@order)
   end
 
   private
