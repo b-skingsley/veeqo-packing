@@ -11,14 +11,30 @@ cont = EasyBoxPacker.pack(
   ]
 )
 
-# find the smallest possible box
-def find_minimum(order)
+# find the smallest possible cuboid that items could form
+def find_minimum_volume(order)
     array = []
     order.items.each do |item|
         array << { dimensions: item.dimensions }
     end
-    container = EasyBoxPacker.find_smallest_container(items: array)
+    EasyBoxPacker.find_smallest_container(items: array)
 end
+
+[1, 2, 3]
+
+def compare_min_volume_with_available_boxes(order)
+    order_dimensions = find_minimum_volume(order).sort
+   
+    for box in sorted_available_boxes do
+        box_dimesions = box["dimensions"].sort
+        if box_dimensions[0] > order_dimensions[0] && box_dimensions[1] > order_dimensions[1] && box_dimensions[2] > order_dimensions[2]
+            chosen_box = box.keys[0]
+            break     
+        end
+    end
+    chosen_box
+end
+
 
 available_boxes = {
                     :envelope => {:dimensions => [31.5, 24, 2], :cost => 8.50},
