@@ -1,21 +1,24 @@
 require 'easy-box-packer'
 
-# cont = EasyBoxPacker.pack(
-#   container: { dimensions: [15, 20, 13], weight_limit: 50 },
-#   items: [
-#     { dimensions: [2, 3, 5], weight: 47 },
-#     { dimensions: [2, 3, 5], weight: 47 },
-#     { dimensions: [3, 3, 1], weight: 24 },
-#     { dimensions: [1, 1, 4], weight: 7 },
-#   ]
-# )
+# get information about a given container, with given items
+cont = EasyBoxPacker.pack(
+  container: { dimensions: [15, 20, 13], weight_limit: 50 },
+  items: [
+    { dimensions: [2, 3, 5], weight: 47 },
+    { dimensions: [2, 3, 5], weight: 47 },
+    { dimensions: [3, 3, 1], weight: 24 },
+    { dimensions: [1, 1, 4], weight: 7 },
+  ]
+)
 
 # find the smallest possible box
 container = EasyBoxPacker.find_smallest_container(
-    items: Array.new(1000) {{ dimensions: [1, 1, 1] }}
+    items: Array.new(10) {{ dimensions: [1, 2, 3] }}
   )
 
-available_boxes {
+p container
+
+available_boxes = {
                     envelope: {dimensions: {longest_side: 31.5, second_longest_side: 24, third_longest_side: 2}, cost: 0.5},
                     pak_1: {dimensions: {longest_side: 37, second_longest_side: 29.5, third_longest_side: 5}, cost: 1.2},
                     pak_2: {dimensions: {longest_side: 39, second_longest_side: 30.5, third_longest_side: 2}, cost: 1.4},
