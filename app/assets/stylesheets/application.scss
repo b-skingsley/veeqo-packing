@@ -17,4 +17,9 @@
 
  body {
   background-color: #F2F2F2;
+  margin: 0;
+ }
+
+ #main-body {
+  height: calc(100vh - 180px)
  }
