@@ -1,29 +1,30 @@
 class OrdersController < ApplicationController
 
   def index
-    @orders = create_orders
+    Order.destroy_all
+    retrieve_orders
+    @orders = Order.all
   end
 
   def show
-    @order = @orders[id: params[:id]]
+    @order = Order.find[params[:id]]
     @package = calc_packaging(@order)
   end
 
   private
 
   # return an array of order instances
-  def create_orders
+  def retrieve_orders
     veeqo_orders = call_orders_api
-    current_orders = []
 
     veeqo_orders.each do |order|
 
-      id = order["id"]
+      v_id = order["id"]
       order_hash = []
       customer_name = order["customer"]["full_name"]
       items = order["line_items"]
 
-      order_items = []
+      current_order = Order.create!(v_id: v_id, customer_name: customer_name)
 
       items.each do |item|
         title = item["sellable"]["product_title"]
@@ -33,14 +34,9 @@ class OrdersController < ApplicationController
         width = item["sellable"]["measurement_attributes"]["width"]
         height = item["sellable"]["measurement_attributes"]["height"]
         depth = item["sellable"]["measurement_attributes"]["depth"]
-        order_item = OrderItem.new(title: title, image_url: image_url, sku_code: sku, weight: weight, width: width , height: height , depth: depth)
-        order_items << order_item
+        order_item = OrderItem.create!(title: title, image_url: image_url, order_id: current_order.id, sku: sku, weight: weight, width: width , height: height , depth: depth)
       end
-
-      current_orders << Order.new(id: id, customer_name: customer_name, items: order_items)
     end
-
-    return current_orders
   end
 
   def call_orders_api

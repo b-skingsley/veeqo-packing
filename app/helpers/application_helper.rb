@@ -33,8 +33,6 @@ module ApplicationHelper
   #     end
   # end
 
-  # p format_dimensions(extract_dimensions_from_api)
-
   # find the total volume of every order from the API
   # plug the extract_dimensions_array method in as the argument
   def volume_of_orders(orders_array)

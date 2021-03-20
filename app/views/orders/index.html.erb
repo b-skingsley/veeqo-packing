@@ -1,0 +1,5 @@
+<ul>
+  <% @orders.each do |order| %>
+    <li><%= order.customer_name %> - <%= order.order_items.count %></li>
+  <% end %>
+</ul>
