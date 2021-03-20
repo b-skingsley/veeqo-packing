@@ -22,25 +22,28 @@ def extract_dimensions_from_api
     dimensions
 end
 
+
+
 # get the dimensions of every item, in every order from the formatted API data (see line 17), in format [x, y, z]
 # plug the extract_dimensions_array method in as the argument
-def format_dimensions(orders_array)
-    (0..(orders_array.size - 1)).each do |index|
-        orders_array[index].each do |item|
-            item[1].values[1..3].inject(:*)
+def format_dimensions(order)
+     order.items
         end
     end
 end
 
+p format_dimensions(extract_dimensions_from_api)
+
 # find the total volume of every order from the API
 # plug the extract_dimensions_array method in as the argument
 def volume_of_orders(orders_array)
-(0..(orders_array.size - 1)).each do |index|
-    sum = 0
-    orders_array[index].each do |item|
-        sum += item[1].values[1..3].inject(:*)
-    end
-    sum
+    (0..(orders_array.size - 1)).each do |index|
+        sum = 0
+        orders_array[index].each do |item|
+            sum += item[1].values[1..3].inject(:*)
+        end
+        sum
+    end 
 end
 
 available_boxes = {
@@ -65,7 +68,7 @@ available_boxes = {
 # useful to iterate through the boxes to find the cheapest possible box that would fit our items                 
 sorted_available_boxes.sort_by { |k, v| v[:cost] }
 
-# find the volume of a hash of dimensions                 
+# # find the volume of a hash of dimensions                 
 def volume(hash)
   hash.values.inject(:*)
 end
