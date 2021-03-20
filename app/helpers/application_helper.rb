@@ -1,3 +1,4 @@
+
 # # module ApplicationHelper
     
 # # end
@@ -45,3 +46,4 @@ AVAILABLE_BOXES = {
 def volume(hash)
   hash.values.inject(:*)
 end
+
