@@ -10,11 +10,16 @@ response = URI.open(url, "accept" => 'application/json', 'x-api-key' => '20bfb73
 deserialized = JSON.parse(response)
 
 
+dimensions = []
+
+
 deserialized.each do |order|
-  order["line_items"].each do |item|
-    p item["sellable"]["measurement_attributes"]["width"]
-    p item["sellable"]["measurement_attributes"]["height"]
-    p item["sellable"]["measurement_attributes"]["depth"]
-    p "------------------------------"
+  order_hash = []
+  id = order["id"]
+  items = order["line_items"]
+  items.each do |item|
+    order_hash << item["sellable"]["measurement_attributes"]
+    dimensions << order_hash
   end
-end
+end 
+
