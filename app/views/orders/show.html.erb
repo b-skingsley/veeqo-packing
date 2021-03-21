@@ -2,7 +2,7 @@
   <li>
     <div class="box-row" id="box">
       <h4>Box to pick - <%= compare_min_volume_with_available_boxes(@order)[0][1][:name] %></h4>
-      <p><%= give_item_positions(compare_min_volume_with_available_boxes(@order)[1], @order) %></p>
+      <p><%= item_placement(give_item_positions(compare_min_volume_with_available_boxes(@order)[1], @order)) %></p>
     </div>
   </li>
   <% @order.order_items.each do |item| %>
@@ -28,6 +28,8 @@
     </li>
   <% end %>
 </ul>
+
+
 
 <!-- Box to pick:
 <br>
