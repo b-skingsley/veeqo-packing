@@ -68,7 +68,8 @@ module ApplicationHelper
 
   # useful to iterate through the boxes to find the cheapest possible box that would fit our items
   def sorted_available_boxes
-    available_boxes.sort_by { |k, v| v[:cost] }
+    sorted = available_boxes.sort_by { |k, v| v[:cost] }
+    Hash[sorted.map {|key, value| [key, value]}]
   end
 
   # sorted_available_boxes.sort_by { |k, v| v[:cost] }
