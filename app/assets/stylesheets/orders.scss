@@ -34,16 +34,6 @@
     margin: 0 8px 0 8px;
   }
 
-  #box {
-    padding: 8px;
-    h4 {
-      font-size: 15px;
-    }
-    p {
-      font-size: 10px;
-    }
-  }
-
 }
 
 .col-align-cent {
@@ -52,3 +42,43 @@
 
   font-size: 20px;
 }
+
+#order-items {
+  padding: 0;
+
+  p {
+    margin-bottom: 0;
+  }
+
+  .light-text {
+    font-weight: lighter;
+  }
+
+  .small {
+    font-size: 11px;
+  }
+
+  .medium {
+    font-size: 14px;
+  }
+
+  li {
+    display: flex;
+    justify-content: space-between;
+
+    background-color: #FFFFFF;
+    border-bottom: 0.5px solid #D0D0D0;
+  }
+
+}
+
+#box {
+  padding: 8px;
+  h4 {
+    font-size: 15px;
+  }
+  p {
+    font-size: 10px;
+  }
+}
+
