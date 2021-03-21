@@ -1,0 +1,102 @@
+{
+
+  :packings=>
+  [
+ 
+    {
+      :placements=>
+      [
+        {
+          :dimensions=>[20, 15, 13], 
+          :position=>[0, 0, 0], 
+          :weight=>24.0
+        }
+      ], 
+      :weight=>24.0, 
+      :spaces=>[]
+    }, 
+ 
+    {
+      :placements=>
+      [
+        {
+          :dimensions=>[20, 14, 13], 
+          :position=>[0, 0, 0], 
+          :weight=>7.0
+        }
+      ], 
+      :weight=>7.0, 
+      :spaces=>
+      [
+        {
+          :dimensions=>[20, 1, 13], 
+          :position=>[0, 14, 0]
+        }, 
+        { 
+          :dimensions=>[20, 14, 0], 
+          :position=>[0, 0, 13]
+        }, 
+        { 
+          :dimensions=>[0, 14, 13], 
+          :position=>[20, 0, 0]
+        }
+      ]
+    }, 
+
+    {
+      :placements=>
+      [
+        {
+          :dimensions=>[20, 7, 13], 
+          :position=>[0, 0, 0], 
+          :weight=>47.0
+        }
+      ], 
+      :weight=>47.0, 
+      :spaces=>
+      [
+        {
+          :dimensions=>[20, 8, 13], 
+          :position=>[0, 7, 0]
+        }, 
+        {
+          :dimensions=>[20, 7, 0], 
+          :position=>[0, 0, 13]
+        }, 
+        {
+          :dimensions=>[0, 7, 13], 
+          :position=>[20, 0, 0]
+        }
+      ]
+    }, 
+
+    {
+      :placements=>
+      [
+        {
+          :dimensions=>[20, 7, 13], 
+          :position=>[0, 0, 0], 
+          :weight=>50.0
+        }
+      ], 
+      :weight=>50.0, 
+      :spaces=>
+      [
+        {
+          :dimensions=>[20, 8, 13], 
+          :position=>[0, 7, 0]
+        }, 
+        {
+          :dimensions=>[20, 7, 0], 
+          :position=>[0, 0, 13]
+        }, 
+        { 
+          :dimensions=>[0, 7, 13], 
+          :position=>[20, 0, 0]
+        }
+      ]
+    }
+  ], 
+
+  :errors=>[]
+}
