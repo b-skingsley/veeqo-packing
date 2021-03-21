@@ -1,9 +1,11 @@
 <header>
   <div>
     <% if action_name == 'index'  %>
-
+      <i class="fas fa-filter"></i>
     <% elsif action_name == 'show' %>
-      <i class="far fa-arrow-left"></i>
+      <%= link_to root_path do %>
+        <i class="fas fa-arrow-left"></i>
+      <% end %>
     <% end %>
   </div>
   <div>
