@@ -1,24 +1,41 @@
+<div>
+
+</div>
 <ul id="orders">
   <% @orders.each do |order| %>
     <li>
       <div class="flex-row">
+        <div class="col-align-cent">
+          <% case order.source %>
+          <% when "amz" %>
+            <i class="fab fa-amazon"></i>
+          <% when "ebay" %>
+            <i class="fab fa-ebay"></i>
+          <% else %>
+            <i class="fas fa-phone"></i>
+          <% end %>
+        </div>
 
-        <i class="fas fa-phone"></i>
-
-        <div>
-          <p class="light-text small">#order-ref#</p>
+        <div class="d-flex flex-column justify-content-center">
+          <p class="light-text small"><%= order.order_ref %></p>
           <p class="medium"><%= order.customer_name %></p>
-          <p class="small">#price#</p>
+          <p class="small">£
+            <% prices = 0 %>
+            <% order.order_items.each do |item|%>
+              <% prices += item.price %>
+            <% end %>
+            <%= '%.2f' % prices %>
+          </p>
         </div>
 
       </div>
-      <div>
-        <div class="text-center">
-          <%= link_to order_path(order), class: 'medium' do %>
+      <div class="col-align-cent">
+        <%= link_to order_path(order), class: 'medium' do %>
+          <div class="text-center">
             <p>Pick</p>
             <i class="fas fa-box-open"></i>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
       </div>
 
     </li>
