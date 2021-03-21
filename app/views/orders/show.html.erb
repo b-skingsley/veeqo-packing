@@ -1,1 +1,10 @@
 <%= sorted_available_boxes %>
+<br>
+<br>
+<%= compare_min_volume_with_available_boxes(@order)[0] %>
+<br>
+<br>
+<%= compare_min_volume_with_available_boxes(@order)[1] %>
+<br>
+<br>
+<%= give_item_positions(compare_min_volume_with_available_boxes(@order)[1], @order) %>
