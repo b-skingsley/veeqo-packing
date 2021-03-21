@@ -14,7 +14,7 @@ order3 = Order.create!(v_id: 13, customer_name: "Alex Smith", order_ref: "#P-132
 order4 = Order.create!(v_id: 14, customer_name: "Phil Smith", order_ref: "#P-1325003", source: 'amz')
 
 
-OrderItem.create!(price: 8.99, sku: "SUP-008", image_url: "http://cdn.shopify.com/s/files/1/1186/0576/products/Nom-Living-Stoneware-Stackable-Coffee-Mug-04-WEB_grande.jpg?v=1581527272", title: "Coffe Mug", order: order1, height: 5, width: 3, depth: 3, weight: 1)
+OrderItem.create!(price: 8.99, sku: "SUP-008", image_url: "http://cdn.shopify.com/s/files/1/1186/0576/products/Nom-Living-Stoneware-Stackable-Coffee-Mug-04-WEB_grande.jpg?v=1581527272", title: "Coffee Mug", order: order1, height: 5, width: 3, depth: 3, weight: 1)
 OrderItem.create!(price: 22.00, sku: "SUP-008",image_url: "https://www.lovefrankie.com/wp-content/uploads/2019/02/floralduckegg6-400x400.jpg", title: "Lampshade", order: order1, height: 20, width: 10, depth: 10, weight: 3)
 OrderItem.create!(price: 11.25, sku: "SUP-008",image_url: "https://sc04.alicdn.com/kf/HTB1cG6zmbZnBKNjSZFrq6yRLFXaV.jpg", title: "Inflatable Sofa", order: order1, height: 40, width: 20, depth: 10, weight: 2)
 OrderItem.create!(price: 2.50, sku: "SUP-008",image_url: "https://ih1.redbubble.net/image.906893060.1802/st,small,507x507-pad,600x600,f8f8f8.jpg", title: "Stickers", order: order1, height: 2, width: 1, depth: 1, weight: 1)
