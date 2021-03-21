@@ -13,13 +13,25 @@
  *= require_tree .
  *= require_self
  */
- @import "components/index";
 
- body {
+@import "bootstrap/scss/bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+@import "components/index";
+
+body {
   background-color: #F2F2F2;
   margin: 0;
- }
+}
 
- #main-body {
-  height: calc(100vh - 180px)
- }
+#main-body {
+  height: calc(100vh - 180px);
+
+  overflow: auto;
+}
+
+.flex-row {
+  display: flex;
+  padding: 8px;
+}

@@ -1,11 +1,20 @@
 header {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: flex-end;
 
-  border-bottom: 0.5px solid grey;
+  border-bottom: 0.5px solid #D0D0D0;
 
+  color: #0092D5;
   background-color: #FFFFFF;
 
   height: 100px;
+
+  div {
+    margin: 16px;
+  }
+
+  .fas {
+    font-size: 1.3rem;
+  }
 }

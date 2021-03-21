@@ -1,3 +1,36 @@
 // Place all the styles related to the orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+#orders {
+  padding: 0;
+
+  p {
+    margin-bottom: 0;
+  }
+
+  .light-text {
+    font-weight: lighter;
+  }
+
+  .small {
+    font-size: 11px;
+  }
+
+  .medium {
+    font-size: 14px;
+  }
+
+  li {
+    display: flex;
+    justify-content: space-between;
+
+    height: 80px;
+
+    background-color: #FFFFFF;
+    border-bottom: 0.5px solid #D0D0D0;
+  }
+
+  div {
+    margin: 0 8px 0 8px;
+  }
+}

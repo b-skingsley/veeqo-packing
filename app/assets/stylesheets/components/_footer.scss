@@ -3,7 +3,21 @@ footer {
   justify-content: space-around;
   align-items: center;
 
+
   height: 80px;
 
+  color: #A1A1A1;
   background-color: #000000;
+
+  div {
+    text-align: center;
+  }
+
+  .active {
+    color: #FFFFFF;
+  }
+
+  p {
+    font-size: 10px;
+  }
 }
