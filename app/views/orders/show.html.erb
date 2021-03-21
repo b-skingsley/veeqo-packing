@@ -1,7 +1,7 @@
 <ul id="order-items">
   <div class="box-row" id="box">
     <h4 class="text-center"><i class="fas fa-box-open"></i> "<%= compare_min_volume_with_available_boxes(@order)[0][1][:name] %>"</h4>
-    <p><%= give_item_positions(compare_min_volume_with_available_boxes(@order)[1], @order) %></p>
+    <p><%= item_placement(give_item_positions(compare_min_volume_with_available_boxes(@order)[1], @order)) %></p>
   </div>
   <% @order.order_items.each do |item| %>
     <li class="d-flex align-items-center">
@@ -19,6 +19,8 @@
     </li>
   <% end %>
 </ul>
+
+
 
 <!-- Box to pick:
 <br>

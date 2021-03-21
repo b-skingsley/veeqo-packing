@@ -159,4 +159,31 @@ module ApplicationHelper
     end
     final
   end
+
+  def item_placement(position_details)
+    bottom_array = []
+    above_array = []
+    counter = 0
+    position_details.each do |item_array|
+      if item_array[1][2] == 0
+        bottom_array << item_array[0]
+        counter += 1
+      else
+        above_array << item_array[0]
+      end
+    end
+    if counter == position_details.length
+      bottom = "Place all items on the bottom of the box in the corresponding order: "
+      bottom << bottom_array.join(", ")
+      return bottom
+    else
+      bottom = "First place the following items on the bottom of the box in the corresponding order: "
+      bottom << bottom_array.join(", ")
+      bottom << ". Then place on top "
+      bottom << above_array.join(", ")
+      bottom << "."
+      return bottom
+    end
+
+  end
 end
