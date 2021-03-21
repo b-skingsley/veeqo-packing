@@ -1,28 +1,19 @@
-<ul id="orders">
-  <li>
-    <div class="box-row" id="box">
-      <h4>Box to pick - <%= compare_min_volume_with_available_boxes(@order)[0][1][:name] %></h4>
-      <p><%= item_placement(give_item_positions(compare_min_volume_with_available_boxes(@order)[1], @order)) %></p>
-    </div>
-  </li>
+<ul id="order-items">
+  <div class="box-row" id="box">
+    <h4 class="text-center"><i class="fas fa-box-open"></i> "<%= compare_min_volume_with_available_boxes(@order)[0][1][:name] %>"</h4>
+    <p><%= item_placement(give_item_positions(compare_min_volume_with_available_boxes(@order)[1], @order)) %></p>
+  </div>
   <% @order.order_items.each do |item| %>
-    <li>
-      <div class="flex-row">
-
-        <div>
-          <p class="light-text small">#sku-code#</p>
-          <p class="medium"><%= item.title %></p>
-          <p class="small">#price#</p>
-        </div>
-
+    <li class="d-flex align-items-center">
+      <div class="d-flex justify-content-around align-items-center">
+        <img src="<%= item.image_url %>" alt="" height="50" class="mr-2">
+        <p class="medium mr-1">1x </p>
+        <p class="medium mr-1"><%= item.title %></p>
+        <p class="light-text small"><%= item.sku %></p>
       </div>
-      <div>
-        <div class="text-center">
-          <%= link_to order_path(@order), class: 'medium' do %>
-            <p>Pick</p>
-            <i class="fas fa-box-open"></i>
-          <% end %>
-        </div>
+      <div class="d-flex">
+        <p class="medium mr-1">Picked?</p>
+        <input class="mr-2" type="checkbox">
       </div>
 
     </li>
