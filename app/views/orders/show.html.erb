@@ -53,7 +53,7 @@
   chart_content = array
 %>
 
-<%= scatter_chart chart_content, xmin: 0, ymin: 0, xmax: box_chosen[0], ymax: box_chosen[1] %>
+<%= scatter_chart chart_content, xmin: 0, ymin: 0, xmax: box_chosen[0], max: box_chosen[1] %>
 
 <%# <%= scatter_chart give_item_positions(compare_min_volume_with_available_boxes(@order)[1], @order).map{|x| x[1][0...-1]}, download: true %>
 
