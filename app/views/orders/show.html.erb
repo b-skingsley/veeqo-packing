@@ -1,10 +1,42 @@
-<%= sorted_available_boxes %>
-<br>
+<ul id="orders">
+  <li>
+    <div class="box-row" id="box">
+      <h4>Box to pick - <%= compare_min_volume_with_available_boxes(@order)[0][1][:name] %></h4>
+      <p><%= give_item_positions(compare_min_volume_with_available_boxes(@order)[1], @order) %></p>
+    </div>
+  </li>
+  <% @order.order_items.each do |item| %>
+    <li>
+      <div class="flex-row">
+
+        <div>
+          <p class="light-text small">#sku-code#</p>
+          <p class="medium"><%= item.title %></p>
+          <p class="small">#price#</p>
+        </div>
+
+      </div>
+      <div>
+        <div class="text-center">
+          <%= link_to order_path(@order), class: 'medium' do %>
+            <p>Pick</p>
+            <i class="fas fa-box-open"></i>
+          <% end %>
+        </div>
+      </div>
+
+    </li>
+  <% end %>
+</ul>
+
+<!-- Box to pick:
 <br>
 <%= compare_min_volume_with_available_boxes(@order)[0] %>
 <br>
-<br>
-<%= compare_min_volume_with_available_boxes(@order)[1] %>
-<br>
+<br> -->
+<!-- Where to position the items:
 <br>
 <%= give_item_positions(compare_min_volume_with_available_boxes(@order)[1], @order) %>
+ -->
+
+<%= scatter_chart [[3, 0], [4, 9], [0, 4]], download: true %>
