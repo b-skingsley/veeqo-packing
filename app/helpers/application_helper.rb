@@ -123,9 +123,9 @@ module ApplicationHelper
                   container: format_box(box),
                   items: format_order(order)
                 )
-      if cont[:errors] != []
-        p "Something went wrong"
-      end
+      # if cont[:errors] != []
+      #   puts cont[:errors]
+      # end
       if cont[:packings].length == 1 && cont[:errors] == []
         chosen_box = box
         details = cont
@@ -150,5 +150,13 @@ module ApplicationHelper
       names[i] = [names[i][:name], pos]
     end
     names
+  end
+
+  def get_xy_coors(details, order)
+    final = []
+    give_item_positions(details, order).each do |item|
+      final << {name: item[0], data: [item[1][0...-1]]}
+    end
+    final
   end
 end

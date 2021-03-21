@@ -40,16 +40,20 @@
  -->
 
 
-
-<p>----------</p>
 <% box_chosen = compare_min_volume_with_available_boxes(@order)[0][1][:dimensions][0...-1] %>
-<%= give_item_positions(compare_min_volume_with_available_boxes(@order)[1], @order) %>
+<%# xy_items = get_xy_coors(compare_min_volume_with_available_boxes(@order)[1]) %>
+<%#= give_item_positions(compare_min_volume_with_available_boxes(@order)[1], @order) %>
 
-<%= scatter_chart [
-  { name: "Chosen Box", data: [box_chosen] },
-  {name: "Series A", data: [give_item_positions(compare_min_volume_with_available_boxes(@order)[1], @order)]}
-  
-] %>
+<%#= get_xy_coors(compare_min_volume_with_available_boxes(@order)[1], @order).flatten %>
+<%
+  array = [{ name: "Chosen Box", data: [box_chosen] }]
+  get_xy_coors(compare_min_volume_with_available_boxes(@order)[1], @order).each do |item|
+    array << item
+  end
+  chart_content = array
+%>
 
-<%# <%= scatter_chart give_item_positions(compare_min_volume_with_available_boxes(@order)[1], @order).map{|x| x[1][0...-1]}, download: true %> %>
+<%= scatter_chart chart_content, xmin: 0, ymin: 0, xmax: box_chosen[0], ymax: box_chosen[1] %>
+
+<%# <%= scatter_chart give_item_positions(compare_min_volume_with_available_boxes(@order)[1], @order).map{|x| x[1][0...-1]}, download: true %>
 
