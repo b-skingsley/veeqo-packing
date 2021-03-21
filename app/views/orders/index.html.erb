@@ -1,5 +1,21 @@
-<ul>
+<ul id="orders">
   <% @orders.each do |order| %>
-    <li><%= order.customer_name %> - <%= order.order_items.count %></li>
+    <li>
+      <div class="flex-row">
+
+        <i class="fas fa-phone"></i>
+
+        <div>
+          <p class="light-text small">#order-ref#</p>
+          <p class="medium"><%= order.customer_name %></p>
+          <p class="small">#price#</p>
+        </div>
+
+      </div>
+      <div>
+
+      </div>
+
+    </li>
   <% end %>
 </ul>

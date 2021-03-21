@@ -1,3 +1,19 @@
 <header>
+  <div>
+    <% if action_name == 'index'  %>
 
+    <% elsif action_name == 'show' %>
+      <i class="far fa-arrow-left"></i>
+    <% end %>
+  </div>
+  <div>
+    <% if action_name == 'index' %>
+      <h6>Orders</h6>
+    <% elsif action_name == 'show' %>
+      <h6>Pick List</h6>
+    <% end %>
+  </div>
+  <div>
+    <i class="fas fa-ellipsis-h"></i>
+  </div>
 </header>
