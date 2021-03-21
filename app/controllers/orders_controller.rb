@@ -1,9 +1,12 @@
 class OrdersController < ApplicationController
 
   def index
-    Order.destroy_all
-    retrieve_orders
     @orders = Order.all
+
+    # --------- IF USING API ---------
+    # Order.destroy_all
+    # retrieve_orders
+    # @orders = Order.all
   end
 
   def show
