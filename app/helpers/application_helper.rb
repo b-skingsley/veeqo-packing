@@ -79,6 +79,10 @@ module ApplicationHelper
     hash.values.inject(:*)
   end
 
+  def item_volume(item)
+    return item.height * item.width * item.depth
+  end
+
   # find the smallest possible cuboid that items could form
   def find_minimum_volume(order)
       array = []
@@ -106,10 +110,11 @@ module ApplicationHelper
     order.order_items.each do |item|
       items << { dimensions: [item.height, item.width, item.depth].sort, weight: item.weight }
     end
+    items
   end
 
   def format_box(box)
-    { dimensions: box[:dimensions], weight_limit: 50 }
+    { dimensions: box[1][:dimensions], weight_limit: 50 }
   end
 
   def compare_min_volume_with_available_boxes(order)
@@ -123,9 +128,27 @@ module ApplicationHelper
       end
       if cont[:packings].length == 1 && cont[:errors] == []
         chosen_box = box
+        details = cont
         break
       end
     end
-    chosen_box
+    return [chosen_box, details]
+  end
+
+  def give_item_positions(details, order)
+    # return details[:packings][0][:placements][0][:position]
+    array = []
+    details[:packings][0][:placements].each do |item|
+      array << item[:position]
+    end
+    names = []
+    order.order_items.each do |item|
+      names << {name: item.title, volume: item_volume(item)}
+    end
+    names = names.sort_by { |x| -x[:volume] }
+    array.each_with_index do |pos, i|
+      names[i] = [names[i][:name], pos]
+    end
+    names
   end
 end

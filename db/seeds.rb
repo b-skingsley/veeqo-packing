@@ -6,6 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+OrderItem.destroy_all
+Order.destroy_all
+
 order1 = Order.create!(v_id: 1, customer_name: "Barry Smith")
 order2 = Order.create!(v_id: 12, customer_name: "John Smith")
 order3 = Order.create!(v_id: 13, customer_name: "Alex Smith")
