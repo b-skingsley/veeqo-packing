@@ -9,4 +9,19 @@ Where to position the items:
 <br>
 <%= give_item_positions(compare_min_volume_with_available_boxes(@order)[1], @order) %>
 
-<%= scatter_chart [[3, 0], [4, 9], [0, 4]], download: true %>
+
+<p>----------</p>
+<% box_chosen = compare_min_volume_with_available_boxes(@order)[0][1][:dimensions][0...-1] %>
+<%= give_item_positions(compare_min_volume_with_available_boxes(@order)[1], @order) %>
+
+<%= scatter_chart [
+  { name: "Chosen Box", data: [box_chosen] },
+  {name: "Series A", data: [give_item_positions(compare_min_volume_with_available_boxes(@order)[1], @order)]}
+  
+] %>
+
+<%# <%= scatter_chart give_item_positions(compare_min_volume_with_available_boxes(@order)[1], @order).map{|x| x[1][0...-1]}, download: true %> %>
+
+
+
+
